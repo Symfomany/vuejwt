@@ -34,7 +34,6 @@
 
     route: {
       canActivate() {
-        console.log("auth...")
         return auth.user.authenticated
       }
     }

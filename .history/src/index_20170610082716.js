@@ -33,7 +33,7 @@ router.map({
 })
 
 router.redirect({
-  '*': '/login'
+  '*': '/home'
 })
 
 router.start(App, '#app')

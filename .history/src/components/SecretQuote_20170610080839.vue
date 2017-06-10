@@ -1,5 +1,6 @@
 <template>
   <div class="col-sm-6 col-sm-offset-3">
+    <h1>Get a Secret Chuck Norris Quote!</h1>
     <button class="btn btn-warning" v-on:click="getQuote()">Get a Quote</button>
     <div class="quote-area" v-if="quote">
       <h2>
@@ -23,8 +24,8 @@
     methods: {
       getQuote() {
         this.$http
-          .get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=', (data) => {
-            this.quote = data[0];
+          .get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', (data) => {
+            this.quote = data;
           }, {
             headers: auth.getAuthHeader()
           })
@@ -34,7 +35,6 @@
 
     route: {
       canActivate() {
-        console.log("auth...")
         return auth.user.authenticated
       }
     }

@@ -1,8 +1,8 @@
 import { router } from '../index'
 
-const API_URL = 'http://localhost:3000/'
+const API_URL = 'http://localhost:3001/'
 const LOGIN_URL = API_URL + 'sessions/create/'
-const SIGNUP_URL = API_URL + 'signup/'
+const SIGNUP_URL = API_URL + 'users/'
 
 export default {
 
@@ -27,7 +27,6 @@ export default {
 
   signup(context, creds, redirect) {
     context.$http.post(SIGNUP_URL, creds, (data) => {
-      console.log('oki')
       localStorage.setItem('id_token', data.id_token)
 
       this.user.authenticated = true
@@ -38,6 +37,7 @@ export default {
 
     }).error((err) => {
       context.error = err
+      console.log("ok");
     })
   },
 

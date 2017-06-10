@@ -23,8 +23,8 @@
     methods: {
       getQuote() {
         this.$http
-          .get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=', (data) => {
-            this.quote = data[0];
+          .get('https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', (data) => {
+            this.quote = data;
           }, {
             headers: auth.getAuthHeader()
           })
@@ -34,7 +34,6 @@
 
     route: {
       canActivate() {
-        console.log("auth...")
         return auth.user.authenticated
       }
     }

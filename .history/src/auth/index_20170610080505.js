@@ -27,7 +27,6 @@ export default {
 
   signup(context, creds, redirect) {
     context.$http.post(SIGNUP_URL, creds, (data) => {
-      console.log('oki')
       localStorage.setItem('id_token', data.id_token)
 
       this.user.authenticated = true
